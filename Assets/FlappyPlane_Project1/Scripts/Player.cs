@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     bool isFlap=false; // 점프 유무 확인
 
     public bool godMode=false; //테스트용
-
+    private Rigidbody2D rb;
     
 
     
@@ -95,6 +95,8 @@ public class Player : MonoBehaviour
 
         isDead= true;
         deathCooldown = 1f;
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 20f;
 
        
 
