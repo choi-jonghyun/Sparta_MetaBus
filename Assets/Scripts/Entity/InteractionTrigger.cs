@@ -12,6 +12,11 @@ public class InteractionTrigger : MonoBehaviour
     public string miniGameSceneName = "FlappyPlaneScene"; //미니게임 이름
     ScoreManager scoreManager;
 
+    private void Start()
+    {
+        isPlayerInRange = false;
+        interactionPopup.SetActive(false);
+    }
     void Update()
     {
         
