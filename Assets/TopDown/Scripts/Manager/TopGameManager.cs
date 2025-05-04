@@ -50,10 +50,7 @@ public class TopGameManager : MonoBehaviour
         {
             StartGame(); // 두 번째 이후 씬 로딩 시 자동 시작
         }
-        else
-        {
-            isFirstLoading = false; // 첫 로딩 플래그 해제
-        }
+        
     }
 
     public void StartGame()
