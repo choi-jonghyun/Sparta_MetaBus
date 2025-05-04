@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FlappyPlane_Project1/Scenes/FlappyPlaneScene.unity
     guid: 1b9f9b4d6290d3d438f070ef6a5ce3ca
+  - enabled: 1
+    path: Assets/TopDown/Scenes/TopDownScene.unity
+    guid: d88925891d38fb54f8480bcad77d0d63
   m_configObjects: {}
