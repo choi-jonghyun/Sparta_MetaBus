@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TopInteractionTrigger : MonoBehaviour
 {
+
     public GameObject interactionPopup; // 상호작용 안내 UI (에디터에서 연결)
     public bool isPlayerInRange = false;    // 플레이어가 범위 안에 있는지
     public string miniGameSceneName = "TopDownScene"; //미니게임 이름
-    ScoreManager scoreManager;
+    
 
     private void Start()
     {
@@ -23,10 +24,7 @@ public class TopInteractionTrigger : MonoBehaviour
         {
 
             SceneManager.LoadScene(miniGameSceneName);
-            if (ScoreManager.instance.score != 0)
-            {
-                ScoreManager.instance.score = 0;
-            }
+          
         }
     }
     // 플레이어가 트리거에 들어왔을 때 실행되는 함수
