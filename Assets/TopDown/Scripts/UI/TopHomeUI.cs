@@ -24,6 +24,7 @@ public class TopHomeUI : TopBaseUI
     public void OnClickExitButton()
     {
         Application.Quit(); // 빌드된 애플리케이션 종료 (에디터에서는 작동하지 않음)
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MetaBusScene");
     }
 
     protected override UIState GetUIState()

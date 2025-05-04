@@ -21,13 +21,15 @@ public class TopGameOverUI : TopBaseUI
     public void OnClickRestartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       
     }
 
     // 종료 버튼 클릭 시 애플리케이션 종료
     public void OnClickExitButton()
     {
         Application.Quit();
-       
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MetaBusScene");
+
     }
 
     protected override UIState GetUIState()
