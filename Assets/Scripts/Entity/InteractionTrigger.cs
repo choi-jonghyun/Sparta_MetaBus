@@ -25,9 +25,9 @@ public class InteractionTrigger : MonoBehaviour
         {
             
             SceneManager.LoadScene(miniGameSceneName);
-            if (ScoreManager.instance.score != 0)
+            if (ScoreManager.instance.currentScore != 0)
             {
-                ScoreManager.instance.score = 0;
+                ScoreManager.instance.currentScore = 0;
             }
         }
     }

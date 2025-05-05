@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
   public static ScoreManager instance {  get; private set; } //전역 접근용
-    public int score = 0;
+    public int currentScore = 0;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bestScoreText;
     public bool isMiniGame = false;
-    private const string BestScoreKey = "HighScore";
+    
     public int bestScore = 0;
 
     private void Awake()
@@ -24,16 +25,16 @@ public class ScoreManager : MonoBehaviour
         //{
         //    Destroy(gameObject); //중복방지
         //}
-        score = 0;
+        currentScore = 0;
     }
 
     public void SaveHighScore()
     {
         //int bestScore = PlayerPrefs.GetInt("HighScore", 0);
-        if (score > bestScore)
+        if (currentScore > bestScore)
         {
-            bestScore = score;
-            PlayerPrefs.SetInt("HighScore", score);
+            bestScore = currentScore;
+            PlayerPrefs.SetInt("HighScore", currentScore);
             //PlayerPrefs.Save();
         }
     }
@@ -42,27 +43,34 @@ public class ScoreManager : MonoBehaviour
     {
         if(scoreText == null)
             scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
-        bestScore = PlayerPrefs.GetInt(BestScoreKey);
-        UpdateScoreUI(score);
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        UpdateScoreUI();
      }
 
-    public void AddScore(int value)
+    public void AddScore(int amount)
     {
-        score += value;
-        UpdateScoreUI(score);
+        currentScore += amount;
+
+        if (currentScore > bestScore)
+        {
+            bestScore = currentScore;
+            PlayerPrefs.SetInt("BestScore", bestScore);
+        }
+        UpdateScoreUI();
     }
 
-    public void UpdateScoreUI(int score)
+    public void UpdateScoreUI()
     {
 
-        scoreText.text = score.ToString();
+        scoreText.text = $"{currentScore}";
+        bestScoreText.text = $"{bestScore}";
         
                           
     }
 
     public void ResetScore(int score)
     {
-        score = 0 ;
-        UpdateScoreUI(score) ;
+        currentScore = 0 ;
+        UpdateScoreUI() ;
     }
 }

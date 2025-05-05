@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     static GameManager gameManager;
     public static GameManager Instance { get { return gameManager; } }
 
+    private int bestScore = 0;
     private int currentScore = 0;
     ScoreManager scoreManager;
 
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.instance.UpdateScoreUI(0);
+        ScoreManager.instance.UpdateScoreUI();
     }
     public void GameOver()
     {
@@ -40,9 +41,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    //public void AddScore(int score)
+    //public void AddScore(int currentScore)
     //{
-    //    currentScore += score;
+    //    currentScore += currentScore;
     //    Debug.Log("Score:" + currentScore);
     //    ScoreManager.instance.UpdateScoreUI(currentScore);
        
