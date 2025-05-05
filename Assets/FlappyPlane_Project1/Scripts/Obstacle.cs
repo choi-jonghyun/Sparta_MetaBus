@@ -14,7 +14,7 @@ public class Obstacle : MonoBehaviour
     public Transform bottomObject;  
 
     public float widthPadding = 4f; // 오브젝트 사이 폭
-
+    ScoreManager scoreManager;
     GameManager gameManager;
 
     private void Start()

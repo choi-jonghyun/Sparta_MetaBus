@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI restartText;
+    public TextMeshProUGUI bestScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +17,14 @@ public class UIManager : MonoBehaviour
         
 
         restartText.gameObject.SetActive(false);
+        bestScoreText.gameObject.SetActive(false);
     }
 
     public void SetRestart()
     {
         restartText.gameObject.SetActive (true);
         scoreText.gameObject.SetActive (true);
+        bestScoreText.gameObject.SetActive (true);
     }
 
    

@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI bestScoreText;
     public bool isMiniGame = false;
+    private bool isGameOver = false;
     
     public int bestScore = 0;
 
@@ -28,16 +29,16 @@ public class ScoreManager : MonoBehaviour
         currentScore = 0;
     }
 
-    public void SaveHighScore()
-    {
-        //int bestScore = PlayerPrefs.GetInt("HighScore", 0);
-        if (currentScore > bestScore)
-        {
-            bestScore = currentScore;
-            PlayerPrefs.SetInt("HighScore", currentScore);
-            //PlayerPrefs.Save();
-        }
-    }
+    //public void SaveHighScore()
+    //{
+    //    //int bestscore = PlayerPrefs.GetInt("Highscore", 0);
+    //    if (currentScore > bestScore)
+    //    {
+    //        bestScore = currentScore;
+    //        PlayerPrefs.SetInt("BestScore", currentScore);
+    //        PlayerPrefs.Save();
+    //    }
+    //}
 
     void Start()
     {
@@ -46,24 +47,30 @@ public class ScoreManager : MonoBehaviour
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
         UpdateScoreUI();
      }
-
-    public void AddScore(int amount)
+    public void SaveHighScore()
     {
-        currentScore += amount;
-
         if (currentScore > bestScore)
         {
             bestScore = currentScore;
             PlayerPrefs.SetInt("BestScore", bestScore);
+            PlayerPrefs.Save();
         }
+    }
+
+    public void AddScore(int amount)
+    {
+        if (isGameOver) return;
+        currentScore += amount;
+
+      
         UpdateScoreUI();
     }
 
     public void UpdateScoreUI()
     {
 
-        scoreText.text = $"{currentScore}";
-        bestScoreText.text = $"{bestScore}";
+        scoreText.text = $"Score : {currentScore}";
+        bestScoreText.text = $"BestScore : {bestScore}";
         
                           
     }

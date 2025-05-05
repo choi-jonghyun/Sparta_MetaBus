@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        ScoreManager.instance.SaveHighScore();
       
         uiManager.SetRestart();
     }

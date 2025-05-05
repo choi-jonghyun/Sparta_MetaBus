@@ -27,7 +27,7 @@ public class MiniGameEndHandler : MonoBehaviour
     {
         int finalScore = ScoreManager.instance.currentScore;
         
-        ScoreManager.instance.SaveHighScore();
+        //ScoreManager.instance.SaveHighScore();
         //현재점수저장
         PlayerPrefs.SetInt("LastScore", finalScore);
         //최고점수저장
